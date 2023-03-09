@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cspiration.mooc.dao.CourseDao">
+
+    <sql id="courseField">
+        a.id,
+        a.name,
+        a.teacher_name,
+        a.level,
+        a.price,
+        a.time,
+        a.brief,
+        a.create_time,
+        a.update_time,
+        a.del
+    </sql>
+
+    <!--查询条件-->
+    <sql id="courseCondition">
+        <where>
+            <if test="course.id != null">
+                a.id = #{course.id}
+            </if>
+            <if test="course.name != null">
+                and a.name = #{course.name}
+            </if>
+        </where>
+    </sql>
+
+    <!--查找数据-->
+    <select id="query" resultType="course">
+        select
+        <include refid="courseField"/>
+        from t_course a
+        <include refid="courseCondition"></include>
+    </select>
+</mapper>

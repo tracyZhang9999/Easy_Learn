@@ -1,0 +1,28 @@
+/**
+评论
+ */
+.wangToolbar {
+  border: 1px solid #ccc;
+}
+.wangText {
+  border: 1px solid #ccc;
+  height: 100px;
+  width: 820px;
+}
+.w-e-text p {
+  color: black;
+}
+.w-e-text span {
+  color: black;
+}
+/**
+评论的回复
+ */
+.wangToolbar2 {
+  border: 1px solid #ccc;
+}
+.wangText2 {
+  border: 1px solid #ccc;
+  height: 100px;
+  width: 617px;
+}

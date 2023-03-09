@@ -1,0 +1,54 @@
+/*Slider*/
+#myCarousel .nav a small
+{
+    display: block;
+}
+#myCarousel .nav
+{
+    background: #eee;
+}
+.nav-justified > li > a
+{
+    border-radius: 0px;
+}
+.nav-pills>li[data-slide-to="0"].active a { background-color: #16a085; }
+.nav-pills>li[data-slide-to="1"].active a { background-color: #e67e22; }
+.nav-pills>li[data-slide-to="2"].active a { background-color: #2980b9; }
+.nav-pills>li[data-slide-to="3"].active a { background-color: #8e44ad; }
+
+/*Jumbotron*/
+
+.jumbotron{
+    margin-bottom:20px;
+    margin-top:20px;
+    position:center;
+
+}
+
+.pricing {
+    text-align: center;
+}
+
+/*Page Header*/
+.page-header{
+    text-align:center;
+}
+
+.item img {width:100%; max-height:450px;display: block;}
+.caraous-title {
+    position: absolute;
+    top: 20%;
+    left: 25px;
+    right: auto;
+    width: 96.66666666666666%;
+    color: #000;
+}
+.caraous-title h1 {color:#FFF;font-size:45px; font-weight:600;}
+.caraous-title h3 {margin-bottom:30px;color:#fff;font-size:18px; letter-spacing:1px;}
+.caraous-title span {color:#aa1f43;}
+.caraous-img-box img {width:50%;}
+/* Button */
+.site-btn{padding:12px 25px 12px 25px;border-radius:2px;background:#DF314D;border-color:transparent;font-size:14px;}
+.site-btn:hover{background:#C9223D ;border:transparent;}
+.site-btn2{padding:12px 25px 12px 25px;border-radius:2px;background:#05681e;border-color:transparent;font-size:14px;}
+.site-btn2:hover{background:rgb(128, 197, 71); ;border:transparent;}

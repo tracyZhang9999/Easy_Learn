@@ -1,0 +1,44 @@
+/**
+*评论-start
+**/
+.comment{
+    padding: 0px 10px 20px 10px;
+    border-bottom: 1px solid #eee;
+    margin: 20px 0px;
+    min-height: 120px;
+}
+.comment-header{
+    float: left;
+    width: 70px;
+}
+.comment-main{
+    /**float: right;**/
+    width: 730px;
+}
+.comment-header img{
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
+}
+.comment-main .user-name{
+    font-weight: bold;
+    font-size: 14px;
+}
+.comment-main .comment-content{
+    margin-top: 20px;
+    width:100%;
+}
+.comment-main .comment-footer{
+    margin-top: 20px;
+}
+.comment-main .comment-footer a{
+    margin-left: 50px;
+    display: inline-block;
+    color: #93999f;
+}
+.comment-main .comment-footer a:hover{
+    color: #0089D2;
+}
+/**
+*评论-end
+**/

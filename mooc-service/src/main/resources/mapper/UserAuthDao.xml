@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cspiration.mooc.dao.UserAuthDao">
+
+    <!--测试-->
+    <select id="selectUserAuth" resultType="userAuth">
+        select id, email from t_user_auth
+    </select>
+
+    <!--用户注册登录表字段-->
+    <sql id="userAuthField">
+        a.id,
+        a.username,
+        a.password,
+        a.email,
+        a.create_time,
+        a.update_time,
+        a.del
+    </sql>
+
+    <!--查询条件-->
+    <sql id="userAuthCondition">
+        <where>
+            <if test="userAuth.id != null">
+                a.id = #{userAuth.id}
+            </if>
+            <if test="userAuth.username != null">
+                and a.username = #{userAuth.username}
+            </if>
+            <if test="userAuth.passwd != null">
+                and a.password = #{userAuth.passwd}
+            </if>
+            <if test="userAuth.email != null">
+                and a.email = #{userAuth.email}
+            </if>
+        </where>
+    </sql>
+
+    <!--新增操作-->
+    <insert id="insert">
+        insert into t_user_auth
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                username,
+            </if>
+            <if test="passwd != null">
+                password,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="createTime != null">
+                create_time
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username != null">
+                #{username},
+            </if>
+            <if test="passwd != null">
+                #{passwd},
+            </if>
+            <if test="email != null">
+                #{email},
+            </if>
+            <if test="createTime != null">
+                #{createTime}
+            </if>
+        </trim>
+    </insert>
+
+    <!--查找数据-->
+    <select id="query" resultType="userAuth">
+        select
+        <include refid="userAuthField"/>
+        from t_user_auth a
+        <include refid="userAuthCondition"></include>
+    </select>
+
+    <!--更新数据-->
+    <update id="update">
+        update t_user_auth a
+        <set>
+            <if test="userAuth.username != null">
+                a.username = #{userAuth.username},
+            </if>
+            <if test="userAuth.email != null">
+                a.email = #{userAuth.email},
+            </if>
+            <if test="userAuth.passwd != null">
+                a.password = #{userAuth.passwd},
+            </if>
+            <if test="userAuth.del != null">
+                a.del = #{userAuth.del}
+            </if>
+        </set>
+        <where>
+            <if test="userAuth.username != null">
+                a.username = #{userAuth.username}
+            </if>
+        </where>
+    </update>
+
+</mapper>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cspiration.mooc.dao.CommentDao">
+
+    <!--用户注册登录表字段-->
+    <sql id="commentField">
+        a.id,
+        a.course_id,
+        a.content,
+        a.user_id,
+        a.create_time,
+        a.update_time,
+        a.del
+    </sql>
+
+    <!--查询条件-->
+    <sql id="commentCondition">
+        <where>
+            <if test="comment.id != null">
+                a.id = #{comment.id}
+            </if>
+            <if test="comment.courseId != null">
+                and a.course_id = #{comment.courseId}
+            </if>
+            <if test="comment.userId != null">
+                and a.user_id = #{comment.userId}
+            </if>
+        </where>
+    </sql>
+
+    <!--新增操作-->
+    <insert id="insert">
+        insert into t_comment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="courseId != null">
+                course_id,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="createTime != null">
+                create_time
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="courseId != null">
+                #{courseId},
+            </if>
+            <if test="content != null">
+                #{content},
+            </if>
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="createTime != null">
+                #{createTime}
+            </if>
+        </trim>
+    </insert>
+
+    <!--查找数据-->
+    <select id="query" resultType="comment">
+        select
+        <include refid="commentField"/>
+        from t_comment a
+        <include refid="commentCondition"></include>
+    </select>
+
+</mapper>
